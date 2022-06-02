@@ -22,7 +22,7 @@ public class ClimateInfo implements CommandExecutor {
         if(sender instanceof Player) {
             Player player = (Player) sender;
             Component info = Component.text("Here are some useful links and all of the videos and articles referenced as you find stuff: ", NamedTextColor.AQUA);
-            Component github = Component.text("- GitHub Page - ", NamedTextColor.AQUA).hoverEvent(HoverEvent.showText(Component.text("Click to visit the GitHub page"))).clickEvent(ClickEvent.openUrl(""));
+            Component github = Component.text("- GitHub Page", NamedTextColor.AQUA).hoverEvent(HoverEvent.showText(Component.text("Click to visit the GitHub page"))).clickEvent(ClickEvent.openUrl("https://github.com/hongxiw/ClimateChangeWarnings"));
             Component meat = Component.text("- Eating Meat or Plants and Climate Change (Mark Rober)", NamedTextColor.YELLOW).hoverEvent(HoverEvent.showText(Component.text("Click to see the video by Mark Rober"))).clickEvent(ClickEvent.openUrl("https://youtu.be/-k-V3ESHcfA"));
             Component overfish = Component.text("- Overfishing on Climate Change (Greenpeace)", NamedTextColor.YELLOW).hoverEvent(HoverEvent.showText(Component.text("Click to see the article"))).clickEvent(ClickEvent.openUrl("https://www.greenpeace.org/aotearoa/story/how-does-overfishing-make-climate-change-worse/"));
             Component litter = Component.text("- Littering and Recycling on Climate Change (Thinking Sustainably)", NamedTextColor.YELLOW).hoverEvent(HoverEvent.showText(Component.text("Click to see the article"))).clickEvent(ClickEvent.openUrl("https://www.thinkingsustainably.com/littering-affect-climate-change/"));

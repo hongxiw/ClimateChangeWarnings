@@ -7,5 +7,3 @@ description: A Minecraft plugin that adds a few messages that relate to cliamte 
 commands:
   climateinfo:
     description: View info
-  test:
-    description: Testing

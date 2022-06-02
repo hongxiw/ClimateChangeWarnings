@@ -64,7 +64,7 @@ public class Listeners implements Listener {
             Biome.WARM_OCEAN
     };
 
-    private static final Biome[] warmBiomes = new Biome[] {
+    private static final Biome[] warmBiomes = new Biome[]{
             Biome.SWAMP,
             Biome.JUNGLE, Biome.SPARSE_JUNGLE, Biome.BAMBOO_JUNGLE,
             Biome.BEACH, Biome.DESERT,
@@ -97,7 +97,7 @@ public class Listeners implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        TextComponent message = Component.text("Welcome! This server is running the ClimateChangeWarnings plugin that send some notifications when an action in Minecraft relates to climate change").color(NamedTextColor.YELLOW).hoverEvent(HoverEvent.showText(Component.text("Run /climateinfo for more information and links")));
+        TextComponent message = Component.text("Welcome! This server is running the ClimateChangeWarnings plugin that send some notifications when an action in Minecraft relates to climate change").color(NamedTextColor.YELLOW).hoverEvent(HoverEvent.showText(Component.text("Run /climateinfo for more information and links"))).clickEvent(ClickEvent.runCommand("/climateinfo"));
         event.getPlayer().sendMessage(message);
     }
 
@@ -155,7 +155,7 @@ public class Listeners implements Listener {
             message4 = Component.text("Click here for an article about overfishing and climate change").color(NamedTextColor.GREEN).hoverEvent(HoverEvent.showText(Component.text("Click to see the article by Greenpeace"))).clickEvent(ClickEvent.openUrl("https://www.greenpeace.org/aotearoa/story/how-does-overfishing-make-climate-change-worse/"));
         }
         Player player = (Player) event.getDamager();
-        if(message1 == null) {
+        if (message1 == null) {
             return;
         }
         showClimateTitle(player);
@@ -167,7 +167,7 @@ public class Listeners implements Listener {
 
     @EventHandler
     public void onItemDrop(PlayerDropItemEvent event) {
-        if(tryThrow.contains(event.getPlayer().getUniqueId())) {
+        if (tryThrow.contains(event.getPlayer().getUniqueId())) {
             tryThrow.remove(event.getPlayer().getUniqueId());
             return;
         }
@@ -231,8 +231,8 @@ public class Listeners implements Listener {
     public void breakBlock(BlockBreakEvent event) {
         TextComponent message1 = null, message2 = null, message3 = null, message4 = null;
         Player player = event.getPlayer();
-        if(woodList.contains(event.getBlock().getType())) {
-            if(tryBreakTree.contains(player.getUniqueId())) {
+        if (woodList.contains(event.getBlock().getType())) {
+            if (tryBreakTree.contains(player.getUniqueId())) {
                 tryBreakTree.remove(player.getUniqueId());
                 player.getInventory().addItem(new ItemStack(saplings[(int) (Math.random() * saplings.length)], 1));
                 player.sendMessage(Component.text("Take a sapling and plant it. Regrow trees that are cut down so we don't lose our forests", NamedTextColor.GREEN));
@@ -245,8 +245,8 @@ public class Listeners implements Listener {
             message3 = Component.text("If you want to break this tree log, break it again").color(NamedTextColor.AQUA);
             message4 = Component.text("Click here for a video about the #TeamTrees movement from 2019 to plant 20 million trees").color(NamedTextColor.GREEN).hoverEvent(HoverEvent.showText(Component.text("Click to see the video by MrBeast"))).clickEvent(ClickEvent.openUrl("https://youtu.be/HPJKxAhLw5I"));
         }
-        if(event.getBlock().getType() == Material.COAL_ORE || event.getBlock().getType() == Material.COAL_BLOCK || event.getBlock().getType() == Material.DEEPSLATE_COAL_ORE) {
-            if(tryBreakCoal.contains(player.getUniqueId())) {
+        if (event.getBlock().getType() == Material.COAL_ORE || event.getBlock().getType() == Material.COAL_BLOCK || event.getBlock().getType() == Material.DEEPSLATE_COAL_ORE) {
+            if (tryBreakCoal.contains(player.getUniqueId())) {
                 tryBreakCoal.remove(player.getUniqueId());
                 return;
             }
@@ -257,8 +257,8 @@ public class Listeners implements Listener {
             message3 = Component.text("If you want to break this block, break it again").color(NamedTextColor.AQUA);
             message4 = Component.text("Click here for an article about the effects of coal mining").color(NamedTextColor.GREEN).hoverEvent(HoverEvent.showText(Component.text("Click to see the article by United States Energy Information Administration"))).clickEvent(ClickEvent.openUrl("https://www.eia.gov/energyexplained/coal/coal-and-the-environment.php"));
         }
-        if(event.getBlock().getType().name().toLowerCase().contains("coral") || event.getBlock().getType() == Material.SEA_PICKLE) {
-            if(tryBreakCoral.contains(player.getUniqueId())) {
+        if (event.getBlock().getType().name().toLowerCase().contains("coral") || event.getBlock().getType() == Material.SEA_PICKLE) {
+            if (tryBreakCoral.contains(player.getUniqueId())) {
                 tryBreakCoral.remove(player.getUniqueId());
                 return;
             }
@@ -269,7 +269,7 @@ public class Listeners implements Listener {
             message3 = Component.text("If you want to break this block, break it again").color(NamedTextColor.AQUA);
             message4 = Component.text("Click here for an video about how climate change is destroying coral in a positive feedback loop").color(NamedTextColor.GREEN).hoverEvent(HoverEvent.showText(Component.text("Click to see the video by National Geographic"))).clickEvent(ClickEvent.openUrl("https://youtu.be/mQ10xBl8XMQ"));
         }
-        if(message1 == null) {
+        if (message1 == null) {
             return;
         }
         showClimateTitle(player);
@@ -281,7 +281,7 @@ public class Listeners implements Listener {
 
     @EventHandler
     public void onFish(PlayerFishEvent event) {
-        if(!(event.getState() == PlayerFishEvent.State.FISHING)) {
+        if (!(event.getState() == PlayerFishEvent.State.FISHING)) {
             return;
         }
         Component message1, message2, message3, message4;
@@ -298,10 +298,10 @@ public class Listeners implements Listener {
 
     @EventHandler
     public void onFuelFurnace(InventoryClickEvent event) {
-        if(event.getInventory().getType() != InventoryType.FURNACE || event.getInventory().getType() != InventoryType.BLAST_FURNACE) {
+        if (event.getInventory().getType() != InventoryType.FURNACE || event.getInventory().getType() != InventoryType.BLAST_FURNACE) {
             return;
         }
-        if(event.getCurrentItem().getType() != Material.COAL || event.getCurrentItem().getType() != Material.CHARCOAL || event.getCurrentItem().getType() != Material.COAL_BLOCK) {
+        if (event.getCurrentItem().getType() != Material.COAL || event.getCurrentItem().getType() != Material.CHARCOAL || event.getCurrentItem().getType() != Material.COAL_BLOCK) {
             return;
         }
         Player player = (Player) event.getWhoClicked();
@@ -318,9 +318,7 @@ public class Listeners implements Listener {
     }
 
     private void showClimateTitle(Player player) {
-        Component mainTitle = Component.text("Climate Change Connection!").color(NamedTextColor.BLUE);
-        Title title = Title.title(mainTitle, Component.text("Read your chat messages to see information about a climate change concern", NamedTextColor.YELLOW));
-        player.showTitle(title);
+        player.sendActionBar(Component.text("Read your chat messages to see information about a climate change concern", NamedTextColor.YELLOW));
     }
 
 }
