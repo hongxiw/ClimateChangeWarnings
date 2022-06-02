@@ -1,0 +1,11 @@
+name: me.hongxiwen.climatechangewarnings.listeners.ClimateChangeWarnings
+version: '${project.version}'
+main: me.hongxiwen.climatechangewarnings.ClimateChangeWarnings
+api-version: 1.18
+authors: [ HongxiWen ]
+description: A Minecraft plugin that adds a few messages that relate to cliamte change problems
+commands:
+  climateinfo:
+    description: View info
+  test:
+    description: Testing
