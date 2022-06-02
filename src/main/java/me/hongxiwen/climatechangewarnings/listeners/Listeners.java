@@ -51,6 +51,10 @@ public class Listeners implements Listener {
             Material.SPRUCE_WOOD, Material.SPRUCE_LOG
     };
 
+    private static final Material[] saplings = new Material[]{
+            Material.ACACIA_SAPLING, Material.BIRCH_SAPLING, Material.OAK_SAPLING, Material.DARK_OAK_SAPLING, Material.JUNGLE_SAPLING, Material.SPRUCE_SAPLING
+    };
+
     private static final Biome[] waterBiomes = new Biome[]{
             Biome.RIVER,
             Biome.OCEAN, Biome.DEEP_OCEAN,
@@ -230,6 +234,8 @@ public class Listeners implements Listener {
         if(woodList.contains(event.getBlock().getType())) {
             if(tryBreakTree.contains(player.getUniqueId())) {
                 tryBreakTree.remove(player.getUniqueId());
+                player.getInventory().addItem(new ItemStack(saplings[(int) (Math.random() * saplings.length)], 1));
+                player.sendMessage(Component.text("Take a sapling and plant it. Regrow trees that are cut down so we don't lose our forests", NamedTextColor.GREEN));
                 return;
             }
             event.setCancelled(true);
